@@ -16,22 +16,22 @@ HRNet is a modern, React-based Human Resources management application designed t
 To get started with HRNet, follow these steps:
 
 1. Clone the repository:
-   ```
+   ```bash
    git clone https://github.com/jeanmax1me/HRnet.git
    ```
 
 2. Navigate to the project directory:
-   ```
+   ```bash
    cd hrnet
    ```
 
 3. Install dependencies:
-   ```
+   ```bash
    npm install
    ```
 
 4. Start the development server:
-   ```
+   ```bash
    npm run dev
    ```
 
@@ -62,10 +62,6 @@ HRNet consists of two main pages:
 
 The `EmployeeForm` component is responsible for rendering and handling the form to create a new employee.
 
-#### Props
-
-The `EmployeeForm` component doesn't accept any props as it uses React Context for state management.
-
 #### Usage
 
 ```jsx
@@ -81,9 +77,9 @@ function CreateEmployeePage() {
 }
 ```
 
-#### State
+#### State and Props
 
-The component uses the following state managed by React Hook Form:
+The `EmployeeForm` component doesn't accept any props as it uses React Context for state management. It manages the following state internally:
 
 - `firstName`: String - The employee's first name
 - `lastName`: String - The employee's last name
@@ -95,17 +91,13 @@ The component uses the following state managed by React Hook Form:
 - `zipCode`: String - The zip code of the employee
 - `department`: String - The department of the employee
 
-#### Functions
+#### Key Functions
 
 - `onSubmit(data)`: Handles form submission. It creates a new employee object and adds it to the global state using the `useEmployeeContext` hook.
 
 ### EmployeeList
 
 The `EmployeeList` component displays a table of all current employees with sorting, searching, and pagination features.
-
-#### Props
-
-The `EmployeeList` component doesn't accept any props as it uses React Context for state management.
 
 #### Usage
 
@@ -122,9 +114,9 @@ function EmployeeListPage() {
 }
 ```
 
-#### State
+#### State and Props
 
-The component uses the following state:
+The `EmployeeList` component doesn't accept any props as it uses React Context for state management. It manages the following state internally:
 
 - `employees`: Array - List of all employees retrieved from the global state
 - `searchTerm`: String - Current search term for filtering employees
@@ -132,7 +124,7 @@ The component uses the following state:
 - `sortDirection`: String - Current sort direction ('asc' or 'desc')
 - `currentPage`: Number - Current page number for pagination
 
-#### Functions
+#### Key Functions
 
 - `handleSearch(term)`: Updates the search term and filters the employee list
 - `handleSort(column)`: Updates the sort column and direction
