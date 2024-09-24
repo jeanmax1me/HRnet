@@ -16,21 +16,25 @@ HRNet is a modern, React-based Human Resources management application designed t
 To get started with HRNet, follow these steps:
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/jeanmax1me/HRnet.git
    ```
 
 2. Navigate to the project directory:
+
    ```bash
    cd hrnet
    ```
 
 3. Install dependencies:
+
    ```bash
    npm install
    ```
 
 4. Start the development server:
+
    ```bash
    npm run dev
    ```
@@ -62,7 +66,7 @@ HRNet consists of two main pages:
 
 The `EmployeeForm` component is responsible for rendering and handling the form to create a new employee.
 
-#### Usage
+#### Usage Employee Form
 
 ```jsx
 import EmployeeForm from '@/app/components/EmployeeForm';
@@ -99,7 +103,7 @@ The `EmployeeForm` component doesn't accept any props as it uses React Context f
 
 The `EmployeeList` component displays a table of all current employees with sorting, searching, and pagination features.
 
-#### Usage
+#### Usage Employee List
 
 ```jsx
 import EmployeeList from '@/app/components/EmployeeList';
@@ -114,7 +118,7 @@ function EmployeeListPage() {
 }
 ```
 
-#### State and Props
+#### State&Props
 
 The `EmployeeList` component doesn't accept any props as it uses React Context for state management. It manages the following state internally:
 
@@ -124,7 +128,7 @@ The `EmployeeList` component doesn't accept any props as it uses React Context f
 - `sortDirection`: String - Current sort direction ('asc' or 'desc')
 - `currentPage`: Number - Current page number for pagination
 
-#### Key Functions
+#### Functions
 
 - `handleSearch(term)`: Updates the search term and filters the employee list
 - `handleSort(column)`: Updates the sort column and direction
