@@ -9,6 +9,7 @@ import { states } from "@/app/utils/states";
 import { departments } from "@/app/utils/departments";
 import Modal from "@/app/components/Modal";
 import { useEmployeeContext } from "@/app/context/EmployeeContext";
+import { User, Calendar, MapPin, Briefcase } from "lucide-react";
 
 type FormData = {
   firstName: string;
@@ -47,215 +48,222 @@ export default function EmployeeForm() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200  shadow-md rounded-lg overflow-hidden">
-      <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-6">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-          Create New Employee
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label
-              htmlFor="firstName"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              First Name
-            </label>
-            <input
-              {...register("firstName", { required: "First name is required" })}
-              id="firstName"
-              type="text"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.firstName && (
-              <p className="mt-1 text-sm text-red-600">
-                {errors.firstName.message}
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label
-              htmlFor="lastName"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Last Name
-            </label>
-            <input
-              {...register("lastName", { required: "Last name is required" })}
-              id="lastName"
-              type="text"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.lastName && (
-              <p className="mt-1 text-sm text-red-600">
-                {errors.lastName.message}
-              </p>
-            )}
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label
-              htmlFor="dateOfBirth"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Date of Birth
-            </label>
-            <DatePicker
-              selected={dateOfBirth}
-              onChange={(date: Date | null) => setDateOfBirth(date)}
-              dateFormat="dd/MM/yyyy"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="startDate"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Start Date
-            </label>
-            <DatePicker
-              selected={startDate}
-              onChange={(date: Date | null) => setStartDate(date)}
-              dateFormat="dd/MM/yyyy"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-        </div>
-
-        <fieldset className="border border-gray-300 rounded-md p-4">
-          <legend className="text-sm font-medium text-gray-700 px-2">
-            Address
-          </legend>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label
-                htmlFor="street"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Street
-              </label>
+    <div className="max-w-4xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden">
+      <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-6 text-white">
+        <h2 className="text-3xl font-bold mb-2">Create New Employee</h2>
+        <p className="text-blue-100">
+          Fill in the details to add a new team member
+        </p>
+      </div>
+      <form onSubmit={handleSubmit(onSubmit)} className="p-8 space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-6">
+            <div className="relative">
+              <User className="absolute top-3 left-3 text-gray-400" size={20} />
               <input
-                {...register("street", { required: "Street is required" })}
-                id="street"
+                {...register("firstName", {
+                  required: "First name is required",
+                })}
+                id="firstName"
                 type="text"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="First Name"
+                className="w-full pl-10 pr-3 py-2 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none transition-colors"
               />
-              {errors.street && (
+              {errors.firstName && (
                 <p className="mt-1 text-sm text-red-600">
-                  {errors.street.message}
+                  {errors.firstName.message}
                 </p>
               )}
             </div>
-
-            <div>
-              <label
-                htmlFor="city"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                City
-              </label>
+            <div className="relative">
+              <User className="absolute top-3 left-3 text-gray-400" size={20} />
               <input
-                {...register("city", { required: "City is required" })}
-                id="city"
+                {...register("lastName", { required: "Last name is required" })}
+                id="lastName"
                 type="text"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Last Name"
+                className="w-full pl-10 pr-3 py-2 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none transition-colors"
               />
-              {errors.city && (
+              {errors.lastName && (
                 <p className="mt-1 text-sm text-red-600">
-                  {errors.city.message}
+                  {errors.lastName.message}
                 </p>
               )}
             </div>
-
-            <div>
-              <label
-                htmlFor="state"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                State
-              </label>
+            <div className="relative">
+              <Calendar
+                className="absolute top-3 left-3 text-gray-400"
+                size={20}
+              />
+              <DatePicker
+                selected={dateOfBirth}
+                onChange={(date: Date | null) => setDateOfBirth(date)}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Date of Birth"
+                className="w-full pl-10 pr-3 py-2 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none transition-colors"
+              />
+            </div>
+            <div className="relative">
+              <Calendar
+                className="absolute top-3 left-3 text-gray-400"
+                size={20}
+              />
+              <DatePicker
+                selected={startDate}
+                onChange={(date: Date | null) => setStartDate(date)}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Start Date"
+                className="w-full pl-10 pr-3 py-2 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none transition-colors"
+              />
+            </div>
+          </div>
+          <div className="space-y-6">
+            <fieldset className="border-2 border-gray-200 rounded-lg p-4">
+              <legend className="text-sm font-medium text-gray-700 px-2">
+                Address
+              </legend>
+              <div className="space-y-4">
+                <div className="relative">
+                  <MapPin
+                    className="absolute top-3 left-3 text-gray-400"
+                    size={20}
+                  />
+                  <input
+                    {...register("street", { required: "Street is required" })}
+                    id="street"
+                    type="text"
+                    placeholder="Street"
+                    className="w-full pl-10 pr-3 py-2 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none transition-colors"
+                  />
+                  {errors.street && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.street.message}
+                    </p>
+                  )}
+                </div>
+                <div className="relative">
+                  <MapPin
+                    className="absolute top-3 left-3 text-gray-400"
+                    size={20}
+                  />
+                  <input
+                    {...register("city", { required: "City is required" })}
+                    id="city"
+                    type="text"
+                    placeholder="City"
+                    className="w-full pl-10 pr-3 py-2 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none transition-colors"
+                  />
+                  {errors.city && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.city.message}
+                    </p>
+                  )}
+                </div>
+                <div className="relative">
+                  <MapPin
+                    className="absolute top-3 left-3 text-gray-400"
+                    size={20}
+                  />
+                  <select
+                    {...register("state", { required: "State is required" })}
+                    id="state"
+                    className="w-full pl-10 pr-3 py-2 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none transition-colors appearance-none"
+                  >
+                    <option value="">Select a state</option>
+                    {states.map((state) => (
+                      <option
+                        key={state.abbreviation}
+                        value={state.abbreviation}
+                      >
+                        {state.name}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.state && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.state.message}
+                    </p>
+                  )}
+                </div>
+                <div className="relative">
+                  <MapPin
+                    className="absolute top-3 left-3 text-gray-400"
+                    size={20}
+                  />
+                  <input
+                    {...register("zipCode", {
+                      required: "Zip code is required",
+                    })}
+                    id="zipCode"
+                    type="text"
+                    placeholder="Zip Code"
+                    className="w-full pl-10 pr-3 py-2 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none transition-colors"
+                  />
+                  {errors.zipCode && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.zipCode.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </fieldset>
+            <div className="relative">
+              <Briefcase
+                className="absolute top-3 left-3 text-gray-400"
+                size={20}
+              />
               <select
-                {...register("state", { required: "State is required" })}
-                id="state"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                {...register("department", {
+                  required: "Department is required",
+                })}
+                id="department"
+                className="w-full pl-10 pr-3 py-2 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none transition-colors appearance-none"
               >
-                <option value="">Select a state</option>
-                {states.map((state) => (
-                  <option key={state.abbreviation} value={state.abbreviation}>
-                    {state.name}
+                <option value="">Select a department</option>
+                {departments.map((dept) => (
+                  <option key={dept} value={dept}>
+                    {dept}
                   </option>
                 ))}
               </select>
-              {errors.state && (
+              {errors.department && (
                 <p className="mt-1 text-sm text-red-600">
-                  {errors.state.message}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label
-                htmlFor="zipCode"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Zip Code
-              </label>
-              <input
-                {...register("zipCode", { required: "Zip code is required" })}
-                id="zipCode"
-                type="text"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              {errors.zipCode && (
-                <p className="mt-1 text-sm text-red-600">
-                  {errors.zipCode.message}
+                  {errors.department.message}
                 </p>
               )}
             </div>
           </div>
-        </fieldset>
-
-        <div>
-          <label
-            htmlFor="department"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Department
-          </label>
-          <select
-            {...register("department", { required: "Department is required" })}
-            id="department"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="">Select a department</option>
-            {departments.map((dept) => (
-              <option key={dept} value={dept}>
-                {dept}
-              </option>
-            ))}
-          </select>
-          {errors.department && (
-            <p className="mt-1 text-sm text-red-600">
-              {errors.department.message}
-            </p>
-          )}
         </div>
-
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
+          className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105"
         >
           Create Employee
         </button>
       </form>
-
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
-        Employee Created Successfully!
+        <div className="bg-white p-6 rounded-lg text-center">
+          <svg
+            className="mx-auto h-12 w-12 text-green-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+          <h3 className="mt-2 text-lg font-medium text-gray-900">
+            Employee Created Successfully!
+          </h3>
+          <p className="mt-1 text-sm text-gray-500">
+            The new employee has been added to the system.
+          </p>
+        </div>
       </Modal>
     </div>
   );
