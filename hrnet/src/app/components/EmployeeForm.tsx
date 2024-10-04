@@ -7,9 +7,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { states } from "@/app/utils/states";
 import { departments } from "@/app/utils/departments";
-import Modal from "@/app/components/Modal";
 import { useEmployeeContext } from "@/app/context/EmployeeContext";
 import { User, Calendar, MapPin, Briefcase } from "lucide-react";
+import { Modal } from "hrnet-employee-form";
 
 type FormData = {
   firstName: string;

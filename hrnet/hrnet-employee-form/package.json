@@ -1,6 +1,6 @@
 {
   "name": "hrnet-employee-form",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A React component library for employee forms",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,8 +10,7 @@
   },
   "keywords": [
     "react",
-    "form",
-    "employee",
+    "modal",
     "hrnet"
   ],
   "author": "jeanmax1me",
