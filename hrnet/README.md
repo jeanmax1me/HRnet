@@ -10,6 +10,7 @@ HRNet is a modern, React-based Human Resources management application designed t
 - View current employee list
 - Responsive design for various screen sizes
 - Improved performance and user experience compared to the legacy version
+- Usage of created npm package : https://www.npmjs.com/package/hrnet-employee-form
 
 ## Installation
 
