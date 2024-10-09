@@ -1,4 +1,56 @@
-# HRNet
+
+
+# HRnet Conversion Project
+
+## Objective
+Convert an existing jQuery-based HR management application (HRnet) to a modern React application.
+
+## Main Tasks
+1. Convert the entire HRnet project to React.
+2. Convert one of the four existing jQuery plugins to a React component.
+3. Replace the remaining three jQuery plugins with React components.
+4. Perform Lighthouse performance tests comparing the old and new applications.
+
+## Specific Requirements
+
+### Application Conversion
+- Create new React versions of the "Create Employee" and "Employee List" pages.
+- Implement a state management system (replacing local storage).
+- Ensure consistent styling throughout the application.
+- Follow a functional programming paradigm in React (avoid classes).
+- Write modular, maintainable code with small, self-contained functions.
+
+### Plugin Conversion
+- Convert only one jQuery plugin to a React component.
+- Publish the converted component as a separate package on npm or GitHub.
+- Focus on converting only the core UI functionality of the chosen plugin.
+- Replace the other three jQuery plugins with React equivalents (custom or from libraries).
+
+### Documentation
+- Provide documentation for the converted React component, including:
+  - A comprehensive README
+  - Descriptions of props and their usage
+
+### Performance Testing
+- Conduct Lighthouse performance audits for both versions:
+  - Original jQuery application
+  - New React version
+- Measure quantifiable data such as:
+  - Page load times
+  - Network calls
+- Ensure to build the application before conducting the audit.
+
+## Deliverables
+- GitHub repository for the entire converted React project
+- GitHub repository for the converted jQuery plugin (as a separate React component)
+- Published npm package of the converted React component (or GitHub package alternative)
+- Lighthouse performance reports for both the original and converted applications
+
+## Additional Notes
+- Modernizing the design is welcome but not mandatory.
+- Unit testing for React code is optional if time constraints exist.
+- Ensure 100% React and 0% jQuery in the final application.
+
 
 ## Description
 
